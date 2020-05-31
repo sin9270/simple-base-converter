@@ -38,6 +38,9 @@ const _convertToDecimal = (num: string, base: string): string => {
   return convertedNum.toString();
 };
 
+/**
+ * Convert num from originalBase to newBase.
+ */
 const convertBase = (
   num: number | string,
   originalBase: number | string,
