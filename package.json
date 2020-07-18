@@ -1,6 +1,6 @@
 {
   "name": "simple-base-converter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple math module for base conversion.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,6 +15,7 @@
     "type": "git",
     "url": "https://github.com/sin9270/simple-base-converter.git"
   },
+  "homepage": "https://upbeat-cori-01023c.netlify.app",
   "keywords": [
     "base converter"
   ],
