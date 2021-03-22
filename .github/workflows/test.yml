@@ -3,6 +3,8 @@ name: Node.js Package
 on:
   push:
     branches: [develop]
+  pull_request:
+    branches: [develop]
 
 jobs:
   test:
