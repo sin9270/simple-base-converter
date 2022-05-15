@@ -85,9 +85,14 @@ const convertBase = (
     throw new Error("Second augument must not contain the same characters.");
   }
 
-  const availableCharacters = new RegExp("^[" + originalBase + "]+$");
-  if (!availableCharacters.test(num)) {
+  if(num.length === 0) {
     throw new Error("First augument must consist of second augument.");
+  }
+
+  for(let i = 0; i < num.length; i++) {
+    if(!originalBase.includes(num.charAt(i))) {
+        throw new Error("First augument must consist of second augument.");
+    }
   }
 
   if (typeof newBase !== "number" && typeof newBase !== "string") {
