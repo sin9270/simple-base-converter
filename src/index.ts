@@ -10,7 +10,7 @@ const _convertFromDecimal = (num: string, base: string): string => {
   while (!decimalNum.isZero()) {
     const remainder = decimalNum.mod(decimalBase).toNumber();
     decimalNum = decimalNum.dividedToIntegerBy(decimalBase);
-    convertedNumArr.unshift(base.substr(remainder, 1));
+    convertedNumArr.unshift(base.substring(remainder, remainder + 1));
   }
 
   if (convertedNumArr.length === 0) {
@@ -23,13 +23,14 @@ const _convertFromDecimal = (num: string, base: string): string => {
 const _convertToDecimal = (num: string, base: string): string => {
   const baseChar2Idx: { [key: string]: Decimal } = {};
   for (let i = 0; i < base.length; i++) {
-    baseChar2Idx[base.substr(i, 1)] = new Decimal(i);
+    baseChar2Idx[base.substring(i, i + 1)] = new Decimal(i);
   }
 
   const decimalBase = new Decimal(base.length);
   let convertedNum = new Decimal(0);
   for (let i = 0; i < num.length; i++) {
-    const tmpDecimal1 = baseChar2Idx[num.substr((i + 1) * -1, 1)];
+    const tmpDecimal1 =
+      baseChar2Idx[num.substring(num.length - i - 1, num.length - i)];
     const tmpDecimal2 = Decimal.pow(decimalBase, i);
     const tmpDecimal3 = tmpDecimal1.times(tmpDecimal2);
     convertedNum = convertedNum.plus(tmpDecimal3);
@@ -71,7 +72,7 @@ const convertBase = (
     if (!(2 <= originalBase && originalBase <= 62)) {
       throw new Error("Second augument must be between 2 and 62.");
     }
-    originalBase = BASE62.substr(0, originalBase);
+    originalBase = BASE62.substring(0, originalBase);
   }
 
   if (originalBase.length <= 1) {
@@ -100,7 +101,7 @@ const convertBase = (
     if (!(2 <= newBase && newBase <= 62)) {
       throw new Error("Third augument must be between 2 and 62.");
     }
-    newBase = BASE62.substr(0, newBase);
+    newBase = BASE62.substring(0, newBase);
   }
 
   if (newBase.length <= 1) {
