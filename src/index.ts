@@ -85,13 +85,13 @@ const convertBase = (
     throw new Error("Second augument must not contain the same characters.");
   }
 
-  if(num.length === 0) {
+  if (num.length === 0) {
     throw new Error("First augument must consist of second augument.");
   }
 
-  for(let i = 0; i < num.length; i++) {
-    if(!originalBase.includes(num.charAt(i))) {
-        throw new Error("First augument must consist of second augument.");
+  for (let i = 0; i < num.length; i++) {
+    if (!originalBase.includes(num.charAt(i))) {
+      throw new Error("First augument must consist of second augument.");
     }
   }
 
