@@ -16,19 +16,6 @@ jobs:
       - run: npm run lint
       - run: npm test
 
-  version:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: git config --global user.name "WATANABE Shin"
-      - run: git config --global user.email "sin9270@gmail.com"
-      - run: npm version patch
-      - run: git push origin master
-
   publish-npm:
     needs: version
     runs-on: ubuntu-latest
