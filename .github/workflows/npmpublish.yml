@@ -17,6 +17,7 @@ jobs:
       - run: npm test
 
   version:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,7 +28,7 @@ jobs:
       - run: git push origin master
 
   publish-npm:
-    needs: build
+    needs: version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
