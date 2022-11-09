@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: "18.x"
       - run: npm ci
       - run: npm run lint
       - run: npm test
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: "18.x"
       - run: git config --global user.name "WATANABE Shin"
       - run: git config --global user.email "sin9270@gmail.com"
       - run: git fetch origin master
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: "18.x"
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm publish
