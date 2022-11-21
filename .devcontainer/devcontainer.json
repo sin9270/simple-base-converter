@@ -1,0 +1,9 @@
+{
+	"name": "node-dev",
+    "build": {
+        "dockerfile": "./Dockerfile"
+    },
+	"extensions": [
+		"eamodio.gitlens"
+	]
+}
