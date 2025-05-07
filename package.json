@@ -1,6 +1,6 @@
 {
   "name": "simple-base-converter",
-  "version": "1.0.18",
+  "version": "1.0.20",
   "description": "Simple math module for base conversion.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
