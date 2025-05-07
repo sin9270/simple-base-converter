@@ -1,6 +1,6 @@
 {
   "name": "simple-base-converter",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "Simple math module for base conversion.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,9 @@
     "url": "https://github.com/sin9270/simple-base-converter.git"
   },
   "homepage": "https://upbeat-cori-01023c.netlify.app",
-  "keywords": ["base converter"],
+  "keywords": [
+    "base converter"
+  ],
   "author": "WATANABE Shin",
   "license": "MIT",
   "dependencies": {
