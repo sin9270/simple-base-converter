@@ -52,7 +52,7 @@ const convertBase = (
 
   if (
     (typeof num !== "number" && typeof num !== "string") ||
-    (typeof num === "number" && !isFinite(num))
+    (typeof num === "number" && !Number.isFinite(num))
   ) {
     throw new Error("First augument must be a number or string.");
   }
