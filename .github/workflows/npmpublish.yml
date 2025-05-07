@@ -8,22 +8,22 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: "22.x"
       - run: npm ci
-      - run: npm run lint
+      - run: npm run lint:ci
       - run: npm test
 
   version:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: "22.x"
       - run: git config --global user.name "WATANABE Shin"
       - run: git config --global user.email "sin9270@gmail.com"
       - run: git fetch origin master
@@ -35,10 +35,10 @@ jobs:
     needs: version
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: "22.x"
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm publish
