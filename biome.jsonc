@@ -38,7 +38,8 @@
     }
   },
   "files": {
-    "include": ["**/*.ts", "**/*.js", "**/*.json"]
+    "include": ["**/*.ts", "**/*.js", "**/*.json"],
+    "ignore": ["tsconfig.json"]
   },
   "vcs": {
     "enabled": true,
