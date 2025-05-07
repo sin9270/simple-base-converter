@@ -1,31 +1,33 @@
-/* eslint @typescript-eslint/no-explicit-any: 0 */
 import {
-  convertBase,
+  _2To10,
+  _8To10,
   _10To2,
   _10To8,
   _10To16,
   _10To32,
   _10To36,
   _10To62,
-  _2To10,
-  _8To10,
   _16To10,
   _32To10,
   _36To10,
   _62To10,
+  convertBase,
 } from "../src/";
 
 describe("test baseConverter", () => {
   it("test convertBase()", () => {
     // First augument must be a number or string.
     expect(() => {
-      convertBase(null as any, 62, 62);
+      // @ts-expect-error
+      convertBase(null, 62, 62);
     }).toThrow(/First/);
     expect(() => {
-      convertBase(undefined as any, 62, 62);
+      // @ts-expect-error
+      convertBase(undefined, 62, 62);
     }).toThrow(/First/);
     expect(() => {
-      convertBase(true as any, 62, 62);
+      // @ts-expect-error
+      convertBase(true, 62, 62);
     }).toThrow(/First/);
     expect(() => {
       convertBase(100, 62, 62);
@@ -35,21 +37,24 @@ describe("test baseConverter", () => {
     }).not.toThrow();
     // NaN and Infinity have number type, but not allowed.
     expect(() => {
-      convertBase(NaN, 62, 62);
+      convertBase(Number.NaN, 62, 62);
     }).toThrow(/First/);
     expect(() => {
-      convertBase(Infinity, 62, 62);
+      convertBase(Number.POSITIVE_INFINITY, 62, 62);
     }).toThrow(/First/);
 
     // Second augument must be a number or string.
     expect(() => {
-      convertBase("100", null as any, 62);
+      // @ts-expect-error
+      convertBase("100", null, 62);
     }).toThrow(/Second/);
     expect(() => {
-      convertBase("100", undefined as any, 62);
+      // @ts-expect-error
+      convertBase("100", undefined, 62);
     }).toThrow(/Second/);
     expect(() => {
-      convertBase("100", true as any, 62);
+      // @ts-expect-error
+      convertBase("100", true, 62);
     }).toThrow(/Second/);
     expect(() => {
       convertBase("100", 10, 62);
@@ -59,10 +64,10 @@ describe("test baseConverter", () => {
     }).not.toThrow();
     // NaN and Infinity have number type, but not allowed.
     expect(() => {
-      convertBase("100", NaN, 62);
+      convertBase("100", Number.NaN, 62);
     }).toThrow(/Second/);
     expect(() => {
-      convertBase("100", Infinity, 62);
+      convertBase("100", Number.POSITIVE_INFINITY, 62);
     }).toThrow(/Second/);
 
     // Second augument must be integer.
@@ -123,13 +128,16 @@ describe("test baseConverter", () => {
 
     // Third augument must be a number or string.
     expect(() => {
-      convertBase("100", 62, null as any);
+      // @ts-expect-error
+      convertBase("100", 62, null);
     }).toThrow(/Third/);
     expect(() => {
-      convertBase("100", 62, undefined as any);
+      // @ts-expect-error
+      convertBase("100", 62, undefined);
     }).toThrow(/Third/);
     expect(() => {
-      convertBase("100", 62, true as any);
+      // @ts-expect-error
+      convertBase("100", 62, true);
     }).toThrow(/Third/);
     expect(() => {
       convertBase("100", 62, 10);
@@ -139,10 +147,10 @@ describe("test baseConverter", () => {
     }).not.toThrow();
     // NaN and Infinity have number type, but not allowed.
     expect(() => {
-      convertBase("100", 62, NaN as any);
+      convertBase("100", 62, Number.NaN);
     }).toThrow(/Third/);
     expect(() => {
-      convertBase("100", 62, Infinity as any);
+      convertBase("100", 62, Number.POSITIVE_INFINITY);
     }).toThrow(/Third/);
 
     // Third augument must be integer.
