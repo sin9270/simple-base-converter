@@ -24,7 +24,7 @@
     "decimal.js": "^10.4.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.3.13",
     "@types/jest": "^29.2.2",
     "@types/node": "^20.3.1",
     "husky": "^8.0.2",
