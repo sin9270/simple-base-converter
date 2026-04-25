@@ -7,6 +7,8 @@ Simple math module for base conversion.
 ## Install
 
 ```bash
+pnpm add simple-base-converter
+# or
 npm i simple-base-converter
 ```
 

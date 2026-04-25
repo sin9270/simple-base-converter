@@ -1,4 +1,5 @@
 import Decimal from "decimal.js";
+
 Decimal.set({ precision: 1e9 });
 Decimal.set({ toExpPos: 9e15 });
 
@@ -172,17 +173,17 @@ const _62To10 = (num: number | string): string => {
 };
 
 export {
-  convertBase,
+  _2To10,
+  _8To10,
   _10To2,
   _10To8,
   _10To16,
   _10To32,
   _10To36,
   _10To62,
-  _2To10,
-  _8To10,
   _16To10,
   _32To10,
   _36To10,
   _62To10,
+  convertBase,
 };
