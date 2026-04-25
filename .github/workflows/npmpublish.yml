@@ -35,6 +35,9 @@ jobs:
   version-and-publish:
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -48,9 +51,7 @@ jobs:
       - run: pnpm version ${{ inputs.version || 'patch' }} -m "v%s [skip ci]"
       - run: git push origin HEAD --tags
       - run: pnpm install --frozen-lockfile
-      - run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - run: pnpm publish --no-git-checks --provenance
       - run: gh release create "v$(node -p 'require("./package.json").version')" --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
